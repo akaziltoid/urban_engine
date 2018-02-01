@@ -29,5 +29,9 @@ module UrbanEngine
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    # Don't generate assets files.
+    config.generators.assets = false
+    # Don't generate helper files.
+    config.generators.helper = false
   end
 end
