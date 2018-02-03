@@ -15,6 +15,10 @@ gem 'turbolinks', '~> 5'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# Rollbar
+gem 'oj'
+gem 'rollbar'
+
 group :development, :test do
   gem 'pry'
 end
