@@ -27,6 +27,14 @@ module UrbanEngine
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
+    # Redis
+    redis_db = ENV.fetch('REDIS_DB', '0')
+    redis_host = ENV.fetch('REDIS_URL', 'redis://localhost:6379')
+    config.redis = { db: redis_db, host: redis_host, url: File.join(redis_host, redis_db) }
+
+    # Cache
+    config.cache_store = :redis_store, File.join(config.redis[:url], 'cache'), { expires_in: 90.minutes }
+
     # Don't generate system test files.
     config.generators.system_tests = nil
     # Don't generate assets files.
