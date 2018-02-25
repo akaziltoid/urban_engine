@@ -25,7 +25,7 @@ class Thermostat
   end
 
   def self.load_settings(uuid)
-    Rails.cache.fetch("thermostats/#{uuid}/settings", expire_in: 0) do
+    Rails.cache.fetch("thermostats/#{uuid}/settings") do
       {
         mode: 'manual',
         setpoint_temperature_value: 20.7,

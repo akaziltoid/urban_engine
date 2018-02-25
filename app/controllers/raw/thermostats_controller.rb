@@ -4,6 +4,11 @@ class Raw::ThermostatsController < ActionController::Base
     render plain: thermostat.to_raw
   end
 
+  def status
+    thermostat = Thermostat.find(params[:uuid])
+    render plain: thermostat.status
+  end
+
   def reset
     Thermostat.reset(params[:uuid])
     render plain: 'ok'

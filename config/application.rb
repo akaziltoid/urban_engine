@@ -33,7 +33,7 @@ module UrbanEngine
     config.redis = { db: redis_db, host: redis_host, url: File.join(redis_host, redis_db) }
 
     # Cache
-    config.cache_store = :redis_store, File.join(config.redis[:url], 'cache'), { expires_in: 90.minutes }
+    config.cache_store = :redis_store, File.join(config.redis[:url], 'cache')
 
     # Don't generate system test files.
     config.generators.system_tests = nil

@@ -7,7 +7,10 @@ Rails.application.routes.draw do
 
   namespace :raw do
     resources :thermostats, only: :show, param: :uuid do
-      get :reset, on: :member
+      member do
+        get :status
+        get :reset
+      end
     end
     resources :sensor_temperatures, only: :update, param: :uuid
   end
